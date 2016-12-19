@@ -1,5 +1,6 @@
 pip install requests
 pip install pymata
+pip install AWSIoTPythonSDK
 
 npm install mraa
 

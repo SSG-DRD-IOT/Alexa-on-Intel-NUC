@@ -3,10 +3,11 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
 def customCallback(client, userdata, message):
 	print("Received a new message: ")
-	print(message.payload)
+	print(message.payload.state.desired.blue_led)
 	print("from topic: ")
 	print(message.topic)
 	print("--------------\n\n")
+
 
 myMQTTClient = AWSIoTMQTTClient("arn:aws:iot:us-east-1:089742002813:thing/NUC-Gateway")
 

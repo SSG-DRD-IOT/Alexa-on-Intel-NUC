@@ -5,8 +5,6 @@ import subprocess
 import os
 import random
 import time
-#Intel MRAA library
-import mraa
 import alsaaudio
 import wave
 import random
@@ -140,7 +138,6 @@ def start():
 
 
 if __name__ == "__main__":
-	##MRAA output
 
 
 	board.digital_write(LED_Status, 0)

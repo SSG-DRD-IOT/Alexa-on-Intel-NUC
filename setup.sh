@@ -1,3 +1,8 @@
+pip install requests
+pip install pymata
+
+npm install mraa
+
 smart install python-dev
 smart install alsa-lib-dev
 

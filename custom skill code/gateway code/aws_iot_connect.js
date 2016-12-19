@@ -1,4 +1,4 @@
-var m = requrie('mraa');
+var m = require('mraa');
 console.log('MRAA Version: ' + m.getVersion());
 
 mraa.addSubplatform(mraa.GENERIC_FIRMATA, "/dev/ttyACM0");

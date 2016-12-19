@@ -5,10 +5,8 @@ import json
 def customCallback(client, userdata, message):
     print("Received a new message: ")
     parsed_json = json.loads(message.payload)
-    print(parsed_json['state.desired.blue_led'])
-    print("from topic: ")
-    print(message.topic)
-    print("--------------\n\n")
+    print(parsed_json["state"]["desired"]["blue_led"])
+
 
 
 myMQTTClient = AWSIoTMQTTClient("arn:aws:iot:us-east-1:089742002813:thing/NUC-Gateway")

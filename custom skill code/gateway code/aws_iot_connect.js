@@ -1,13 +1,13 @@
-var m = require('mraa');
-console.log('MRAA Version: ' + m.getVersion());
+var mraa = require('mraa');
+console.log('MRAA Version: ' + mraa.getVersion());
 
 mraa.addSubplatform(mraa.GENERIC_FIRMATA, "/dev/ttyACM0");
 
-var blue_led_pin = new m.Gpio(5);
-var red_led_pin = new m.Gpio(6);
+var blue_led_pin = new mraa.Gpio(5);
+var red_led_pin = new mraa.Gpio(6);
 
-blue_led_pin.dir(m.DIR_OUT);
-red_led_pin.dir(m.DIR_OUT);
+blue_led_pin.dir(mraa.DIR_OUT);
+red_led_pin.dir(mraa.DIR_OUT);
 
 var awsIot = require('aws-iot-device-sdk');
 

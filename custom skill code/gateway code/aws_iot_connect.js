@@ -1,3 +1,14 @@
+var m = requrie('mraa');
+console.log('MRAA Version: ' + m.getVersion());
+
+mraa.addSubplatform(mraa.GENERIC_FIRMATA, "/dev/ttyACM0");
+
+var blue_led_pin = new m.Gpio(5);
+var red_led_pin = new m.Gpio(6);
+
+blue_led_pin.dir(m.DIR_OUT);
+red_led_pin.dir(m.DIR_OUT);
+
 var awsIot = require('aws-iot-device-sdk');
 
 var device = awsIot.device({
@@ -20,9 +31,14 @@ device
   .on('message', function(topic, payload) {
     string_payload = payload.toString();
     json_payload = JSON.parse(string_payload);
+    red_led_state = json_payload.state.desired.red_led;
+    blue_led_state = json_payload.state.desired.blue_led;
 
-    console.log('blue led state: ', topic, json_payload.state.desired.blue_led);
-    console.log('red led state: ', topic, json_payload.state.desired.red_led);
+
+    console.log('blue led state: ', topic, blue_led_state);
+    console.log('red led state: ', topic, red_led_state);
+    blue_led_pin.write(blue_led_state)
+    red_led_pin.write(red_led_state)
 
 
   });

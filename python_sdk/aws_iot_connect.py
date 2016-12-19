@@ -1,9 +1,11 @@
 # Import SDK packages
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
+import json
 
 def customCallback(client, userdata, message):
 	print("Received a new message: ")
-	print(message.payload.state.desired.blue_led)
+    parsed_json = json.loads(message.payload)
+	print(parsed_json['state.desired.blue_led'])
 	print("from topic: ")
 	print(message.topic)
 	print("--------------\n\n")

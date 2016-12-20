@@ -131,8 +131,7 @@ def alexa():
 		board.digital_write(LED_Record, 0)
 		os.system('mpg123 -q {}1sec.mp3 {}response.mp3'.format(path, path))
 		board.digital_write(LED_Status, 0)
-                myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
-        
+
 	else:
                 print 'else, no code 200'
 		board.digital_write(LED_Record, 0)
@@ -143,6 +142,9 @@ def alexa():
 			time.sleep(.2)
 			board.digital_write(LED_Record, 0)
 			board.digital_write(LED_Status, 0)
+            
+      myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
+
 
 def start():
     recording = 0

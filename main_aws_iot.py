@@ -110,8 +110,8 @@ def alexa():
 		r = requests.post(url, headers=headers, files=files)
                 print r.status_code
 	if r.status_code == 200:
-        print 'status code 200'
-        myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
+            print 'status code 200'
+            myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
 		for v in r.headers['content-type'].split(";"):
 			if re.match('.*boundary.*', v):
                                 print 'if re.match'

@@ -143,7 +143,7 @@ def alexa():
 			board.digital_write(LED_Record, 0)
 			board.digital_write(LED_Status, 0)
 
-    myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
+
 
 
 def start():
@@ -162,6 +162,7 @@ def start():
             recording = 0;
             record.kill()
             board.digital_write(LED_Record, 0)
+            myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
             alexa()
 
 

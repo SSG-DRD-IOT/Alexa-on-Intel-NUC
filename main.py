@@ -14,9 +14,24 @@ import json
 import re
 from memcache import Client
 
+# Import SDK packages
+from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
+import json
+
+myMQTTClient = AWSIoTMQTTClient("arn:aws:iot:us-east-1:089742002813:thing/NUC-Gateway")
+myMQTTClient.configureEndpoint("a2la7zf3kffmrf.iot.us-east-1.amazonaws.com", 8883)
+myMQTTClient.configureCredentials("root-CA.crt", "NUC-Gateway.private.key", "NUC-Gateway.cert.pem")
+myMQTTClient.configureOfflinePublishQueueing(-1)  # Infinite offline Publish queueing
+myMQTTClient.configureDrainingFrequency(2)  # Draining: 2 Hz
+myMQTTClient.configureConnectDisconnectTimeout(10)  # 10 sec
+myMQTTClient.configureMQTTOperationTimeout(5)  # 5 sec
+myMQTTClient.connect()
+
 Button = 8
 LED_Status = 3
 LED_Record = 4
+blue_led = 5;
+red_led = 6;
 
 board = PyMata("/dev/ttyACM0", verbose=True)
 
@@ -24,6 +39,15 @@ board.set_pin_mode(LED_Status, board.OUTPUT, board.DIGITAL)
 board.set_pin_mode(LED_Record, board.OUTPUT, board.DIGITAL)
 board.set_pin_mode(Button, board.INPUT, board.DIGITAL)
 
+def customCallback(client, userdata, message):
+    print("Received a new message: ")
+    parsed_json = json.loads(message.payload)
+    blue_led_state = parsed_json["state"]["desired"]["blue_led"]
+    red_led_state = parsed_json["state"]["desired"]["red_led"]
+    print(blue_led_state)
+    print(red_led_state)
+    board.digital_write(blue_led, blue_led_state)
+    board.digital_write(red_led, red_led_state)
 
 #Setup
 recorded = False
@@ -107,6 +131,7 @@ def alexa():
 		board.digital_write(LED_Record, 0)
 		os.system('mpg123 -q {}1sec.mp3 {}response.mp3'.format(path, path))
 		board.digital_write(LED_Status, 0)
+
 	else:
                 print 'else, no code 200'
 		board.digital_write(LED_Record, 0)
@@ -118,6 +143,9 @@ def alexa():
 			board.digital_write(LED_Record, 0)
 			board.digital_write(LED_Status, 0)
 
+
+
+
 def start():
     recording = 0
     last = 0
@@ -126,7 +154,7 @@ def start():
         val =  board.digital_read(Button)
         if val == 1 and last == 0:
             last = 1;
-            record = subprocess.Popen(['arecord', '-r', '16000', '-f', 'S16_LE', '--period-size', '500', '-c', '1', '-vv', '-D', 'copy', 'recording.wav'])
+            record = subprocess.Popen(['arecord', '-r', '16000', '-f', 'S16_LE', '--period-size', '500', '-c', '1', '-vv', 'recording.wav'])
             recording = 1;
             board.digital_write(LED_Record, 1)
         elif val == 0 and recording == 1:
@@ -134,6 +162,7 @@ def start():
             recording = 0;
             record.kill()
             board.digital_write(LED_Record, 0)
+            myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
             alexa()
 
 

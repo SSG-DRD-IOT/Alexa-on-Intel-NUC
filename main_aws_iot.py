@@ -117,7 +117,6 @@ def alexa():
                 print r.status_code
 	if r.status_code == 200:
                 print 'status code 200'
-                myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
 		for v in r.headers['content-type'].split(";"):
 			if re.match('.*boundary.*', v):
                                 print 'if re.match'
@@ -132,6 +131,8 @@ def alexa():
 		board.digital_write(LED_Record, 0)
 		os.system('mpg123 -q {}1sec.mp3 {}response.mp3'.format(path, path))
 		board.digital_write(LED_Status, 0)
+                myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
+        
 	else:
                 print 'else, no code 200'
 		board.digital_write(LED_Record, 0)

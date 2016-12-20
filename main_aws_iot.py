@@ -110,8 +110,8 @@ def alexa():
 		r = requests.post(url, headers=headers, files=files)
                 print r.status_code
 	if r.status_code == 200:
-            print 'status code 200'
-            myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
+                print 'status code 200'
+                myMQTTClient.subscribe("$aws/things/NUC-Gateway/shadow/update/accepted", 1, customCallback)
 		for v in r.headers['content-type'].split(";"):
 			if re.match('.*boundary.*', v):
                                 print 'if re.match'
@@ -145,7 +145,7 @@ def start():
         val =  board.digital_read(Button)
         if val == 1 and last == 0:
             last = 1;
-            record = subprocess.Popen(['arecord', '-r', '16000', '-f', 'S16_LE', '--period-size', '500', '-c', '1', '-vv', '-D', 'copy', 'recording.wav'])
+            record = subprocess.Popen(['arecord', '-r', '16000', '-f', 'S16_LE', '--period-size', '500', '-c', '1', '-vv', 'recording.wav'])
             recording = 1;
             board.digital_write(LED_Record, 1)
         elif val == 0 and recording == 1:

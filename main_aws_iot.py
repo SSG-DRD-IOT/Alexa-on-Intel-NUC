@@ -18,11 +18,6 @@ from memcache import Client
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import json
 
-def customCallback(client, userdata, message):
-    print("Received a new message: ")
-    parsed_json = json.loads(message.payload)
-    print(parsed_json["state"]["desired"]["blue_led"])
-
 myMQTTClient = AWSIoTMQTTClient("arn:aws:iot:us-east-1:089742002813:thing/NUC-Gateway")
 myMQTTClient.configureEndpoint("a2la7zf3kffmrf.iot.us-east-1.amazonaws.com", 8883)
 myMQTTClient.configureCredentials("root-CA.crt", "NUC-Gateway.private.key", "NUC-Gateway.cert.pem")
@@ -35,6 +30,8 @@ myMQTTClient.connect()
 Button = 8
 LED_Status = 3
 LED_Record = 4
+blue_led = 5;
+red_led = 6;
 
 board = PyMata("/dev/ttyACM0", verbose=True)
 
@@ -42,6 +39,15 @@ board.set_pin_mode(LED_Status, board.OUTPUT, board.DIGITAL)
 board.set_pin_mode(LED_Record, board.OUTPUT, board.DIGITAL)
 board.set_pin_mode(Button, board.INPUT, board.DIGITAL)
 
+def customCallback(client, userdata, message):
+    print("Received a new message: ")
+    parsed_json = json.loads(message.payload)
+    blue_led_state = parsed_json["state"]["desired"]["blue_led"]
+    red_led_state = parsed_json["state"]["desired"]["red_led"]
+    print(blue_led_state)
+    print(red_led_state)
+    board.digital_write(blue_led, blue_led_state)
+    board.digital_write(red_led, red_led_state)
 
 #Setup
 recorded = False

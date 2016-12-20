@@ -41,8 +41,8 @@ class Start(object):
 
 
 cherrypy.server.ssl_module = 'builtin'
-cherrypy.server.ssl_certificate = "./cert.pem"
-cherrypy.server.ssl_private_key = "./privkey.pem"
+cherrypy.server.ssl_certificate = "/root/cert.pem"
+cherrypy.server.ssl_private_key = "/root/privkey.pem"
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
 cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', '5000')),})
 cherrypy.quickstart(Start())

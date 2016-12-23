@@ -1,0 +1,26 @@
+{
+  "intents": [
+    {
+      "intent": "DeviceStateIntent",
+      "slots": [
+      {
+        "name" : "DeviceState",
+        "type": "Device_States"
+      }
+     ]
+    },
+
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

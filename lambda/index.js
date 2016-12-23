@@ -1,7 +1,7 @@
 'use strict';
 var config = {};
 
-config.IOT_BROKER_ENDPOINT      = "a2la7zf3kffmrf.iot.us-east-1.amazonaws.com".toLowerCase();
+config.IOT_BROKER_ENDPOINT      = "REST_API_ENDPOINT".toLowerCase();
 
 config.IOT_BROKER_REGION        = "us-east-1";
 

@@ -1,11 +1,15 @@
 # Alexa-on-Intel-NUC
 
-Code to connect Intel NUC Gateway to Alexa Voice Services. 
+This project demonstrates how to integrate the Intel NUC with Amazon Alexa Voice Services. When finished you will use the Intel NUC to send voice commands to Alexa and be able to control 2 LEDs connected to the NUC via an Arduino 101.   
 
 ##Instructions 
 
-1. Clone or download repo onto the Intel NUC Gateway 
+In the Documents folder you will find two PDFs: 
 
-2. Follow the instructions provided in the Instructions.pdf file. 
+"Getting Started With Intel NUC and AWS" covers basic getting started instructions and teaches you how to use Node-RED to send sensor data to AWS
 
-If you are unfamiliar with the basic operation of the Gateway refer to this document: https://software.intel.com/en-us/getting-started-with-intel-iot-gateways-and-iotdk
+
+"Alexa Voice Service on Intel NUC" covers how to use the code in this repository to create the Alexa Voice Service integration with the Intel NUC.
+
+
+For more information on the Intel NUC and other Gateways please refer to this document: https://software.intel.com/en-us/getting-started-with-intel-iot-gateways-and-iotdk

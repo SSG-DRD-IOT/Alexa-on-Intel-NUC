@@ -19,16 +19,11 @@ python setup.py build
 python setup.py install
 cd ..
 
-#Install pip
-wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
-
-
 #install pyalsaaudio
-smart channel --add Intel_Repository2 type=rpm-md baseurl=https://download.01.org/iotgateway/rcpl13/x86_64/
+smart channel --add Intel_Repository_2 type=rpm-md baseurl=https://download.01.org/iotgateway/rcpl13/x86_64/
 smart update
 smart install python-distribute
-smart channel --add corei7_64 type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
+smart channel --add corei7_64_2 type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
 easy_install --install-dir /usr/lib64/python2.7/site-packages/ pyalsaaudio
 
 #install mpg123

@@ -1,3 +1,7 @@
+#install pip
+wget https://bootstrap.pypa.io/get-pip.py
+python ./get-pip.py
+
 pip install requests
 pip install pymata
 pip install AWSIoTPythonSDK

@@ -25,7 +25,7 @@ python get-pip.py
 
 
 #install pyalsaaudio
-smart channel --add Intel_Repository type=rpm-md baseurl=https://download.01.org/iotgateway/rcpl13/x86_64/
+smart channel --add Intel_Repository2 type=rpm-md baseurl=https://download.01.org/iotgateway/rcpl13/x86_64/
 smart update
 smart install python-distribute
 smart channel --add corei7_64 type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/

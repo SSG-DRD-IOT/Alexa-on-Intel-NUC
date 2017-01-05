@@ -8,8 +8,7 @@ pip install AWSIoTPythonSDK
 
 npm install mraa
 
-smart install python-dev
-smart install alsa-lib-dev
+
 
 # install memechached
 wget https://pypi.python.org/packages/f7/62/14b2448cfb04427366f24104c9da97cf8ea380d7258a3233f066a951a8d8/python-memcached-1.58.tar.gz
@@ -21,9 +20,11 @@ cd ..
 
 #install pyalsaaudio
 smart channel --add Intel_Repository_2 type=rpm-md baseurl=https://download.01.org/iotgateway/rcpl13/x86_64/
-smart update
-smart install python-distribute
 smart channel --add corei7_64_2 type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
+smart update
+smart install python-dev
+smart install alsa-lib-dev
+smart install python-distribute
 easy_install --install-dir /usr/lib64/python2.7/site-packages/ pyalsaaudio
 
 #install mpg123

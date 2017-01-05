@@ -4,7 +4,9 @@ This project demonstrates how to integrate the Intel NUC with Amazon Alexa Voice
 
 ##Instructions 
 
-In the Documents folder you will find two PDFs: 
+Please visit: https://software.intel.com/enable-alexa-workshop for the most up to date instructions
+
+In the Documents folder you will also find two PDFs: 
 
 "Getting Started With Intel NUC and AWS" covers basic getting started instructions and teaches you how to use Node-RED to send sensor data to AWS
 

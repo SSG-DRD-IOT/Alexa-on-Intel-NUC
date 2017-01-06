@@ -34,4 +34,5 @@ cd mpg123-1.23.8
 ./configure --prefix=/usr --with-module-suffix=.so
 make
 make install
+ldconfig
 cd ..

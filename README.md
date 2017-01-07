@@ -13,7 +13,15 @@ In the Documents folder you will also find two PDFs:
 
 "Alexa Voice Service on Intel NUC" covers how to use the code in this repository to create the Alexa Voice Service integration with the Intel NUC.
 
+##Programming Gateway with JavaSript: https://software.intel.com/en-us/articles/getting-started-with-intel-iot-gateways-javascript
+
+##Programming Gateway with Python: https://software.intel.com/en-us/articles/getting-started-with-intel-iot-gateways-python
+
+##General Info and Project Ideas on Gateways: https://software.intel.com/en-us/iot/hardware/gateways/documentation
+
+##For more information on the Intel NUC and other Gateways please refer to this document: https://software.intel.com/en-us/getting-started-with-intel-iot-gateways-and-iotdk
+
 For information on configuring the pocket router as client mode see: http://www.tp-link.com/us/FAQ-614.html
 
 
-For more information on the Intel NUC and other Gateways please refer to this document: https://software.intel.com/en-us/getting-started-with-intel-iot-gateways-and-iotdk
+

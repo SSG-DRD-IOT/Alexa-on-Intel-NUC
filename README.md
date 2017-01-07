@@ -15,7 +15,7 @@ In the Documents folder you will also find two PDFs:
 
 ##To connect to the Gateway using the broadcast SSID connect your host computer to the SSID displayed on the front of the Gateway (IDPDK-XXXX) and use the password "windriveridp". You will then be able to ssh to root@192.168.1.1 with passwor root. If the Gateway is plugged into ethernet you will still be able to browse the web on your host computer as well.
 
-##Programming Gateway with JavaSript: https://software.intel.com/en-us/articles/getting-started-with-intel-iot-gateways-javascript
+##Blink LED with JavaScript using XDK: https://software.intel.com/en-us/node/635256
 
 ##Programming Gateway with Python: https://software.intel.com/en-us/articles/getting-started-with-intel-iot-gateways-python
 

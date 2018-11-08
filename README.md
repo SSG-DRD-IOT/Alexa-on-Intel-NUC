@@ -15,13 +15,13 @@ In the Documents folder you will also find two PDFs:
 
 To connect to the Gateway using the broadcast SSID connect your host computer to the SSID displayed on the front of the Gateway (IDPDK-XXXX) and use the password "windriveridp". You will then be able to ssh to root@192.168.1.1 with passwor root. If the Gateway is plugged into ethernet you will still be able to browse the web on your host computer as well.
 
-## Blink LED with JavaScript using XDK: https://software.intel.com/en-us/node/635256
+- Blink LED with JavaScript using XDK: https://software.intel.com/en-us/node/635256
 
-## Programming Gateway with Python: https://software.intel.com/en-us/articles/getting-started-with-intel-iot-gateways-python
+- Programming Gateway with Python: https://software.intel.com/en-us/articles/getting-started-with-intel-iot-gateways-python
 
-## General Info and Project Ideas on Gateways: https://software.intel.com/en-us/iot/hardware/gateways/documentation
+- General Info and Project Ideas on Gateways: https://software.intel.com/en-us/iot/hardware/gateways/documentation
 
-## For more information on the Intel NUC and other Gateways please refer to this document: https://software.intel.com/en-us/getting-started-with-intel-iot-gateways-and-iotdk
+- For more information on the Intel NUC and other Gateways please refer to this document: https://software.intel.com/en-us/getting-started-with-intel-iot-gateways-and-iotdk
 
 For information on configuring the pocket router as client mode see: http://www.tp-link.com/us/FAQ-614.html
 
